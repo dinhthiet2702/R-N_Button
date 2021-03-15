@@ -1,63 +1,57 @@
-
-
-
-
-
 //State
 
 let appState = {
-    data : [
+    data: [
         {
-            id:0,
+            id: 0,
             name: "Default Button",
-            backgroundColor: 'red',
+            backgroundColor: "red",
             radius: 20,
             width: 100,
             height: 50,
-            color: 'white',
+            color: "white",
             fontSize: 18,
             fontWeight: 800,
-        }
-    ]
-    
-}
+            imageSource: null,
+        },
+    ],
+};
 // Action
 
 export const AppendButton = (obj) => {
     return {
-        type: 'Append',
-        value: obj
-    }
-}
+        type: "Append",
+        value: obj,
+    };
+};
 
 export const DeleteButton = (obj) => {
     return {
-        type: 'Delete',
-        value: obj
-    }
-}
+        type: "Delete",
+        value: obj,
+    };
+};
 
 //Reduce
 
 export const btnListReduce = (state = appState, action) => {
-
     let arrBtn = state.data;
 
-    switch (action.type){
-        case 'Append':
-            return {...state, data: [...state.data, action.value]}
+    switch (action.type) {
+        case "Append":
+            return { ...state, data: [...state.data, action.value] };
 
-        case 'Update':
-            const index = arrBtn.findIndex( obj => obj.id === action.value.id);
+        case "Update":
+            const index = arrBtn.findIndex((obj) => obj.id === action.value.id);
             arrBtn[index] = action.value;
-            return {...state, data: [...arrBtn]}
+            return { ...state, data: [...arrBtn] };
 
-        case 'Delete':
-            const indexD = arrBtn.findIndex( obj => obj.id === action.value.id);
-            let arr = arrBtn.filter((e,index)  => index !== indexD);
+        case "Delete":
+            const indexD = arrBtn.findIndex((obj) => obj.id === action.value.id);
+            let arr = arrBtn.filter((e, index) => index !== indexD);
 
-            return {...state, data: [...arr]}
+            return { ...state, data: [...arr] };
     }
 
     return state;
-}
+};

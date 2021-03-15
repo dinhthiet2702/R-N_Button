@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -26,13 +26,13 @@ import BaseNav from './BaseComponent/BaseNavigation'
 
 const App = () => {
   return (
-    <BaseNav/>
-   
+    <BaseNav />
+
   );
 };
 
 const styles = StyleSheet.create({
-  
+
 
 });
 
