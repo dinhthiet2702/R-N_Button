@@ -18,14 +18,15 @@ export default InputText = ({ title, field, setData, objBtn, valueText }) => {
                 marginTop: 10,
             }}
         >
-            <Text style={{ width: "20%", marginLeft: 10 }}>{title}: </Text>
+            <Text style={{ width: "30%", marginLeft: 10 }}>{title}: </Text>
             <TextInput
-                defaultValue={`${objBtn && Object.keys(objBtn).length > 0
-                        ? objBtn[field]
-                        : valueText[field] || ""
+                defaultValue={`${valueText[field]
+                        ? valueText[field]
+                        : ""
                     }`}
                 placeholder="input text"
                 style={styles.inputText}
+                keyboardType="number-pad"
                 onChangeText={(text) => {
                     let valueTemp = { ...valueText };
 
@@ -43,7 +44,7 @@ export default InputText = ({ title, field, setData, objBtn, valueText }) => {
 
 const styles = StyleSheet.create({
     inputText: {
-        width: "70%",
+        width: "60%",
         height: 40,
         borderRadius: 10,
         paddingLeft: 10,

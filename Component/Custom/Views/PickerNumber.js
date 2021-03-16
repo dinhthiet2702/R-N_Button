@@ -6,6 +6,12 @@ import {
 } from "react-native";
 
 import { Picker } from "@react-native-picker/picker";
+import { useEffect } from "react";
+
+
+
+
+
 
 export default PickerNumber = ({
     value,
@@ -16,13 +22,27 @@ export default PickerNumber = ({
     count,
     number,
 }) => {
-    const [selectNumber, setNumberLanguage] = useState();
 
-    let arrNumber = [];
 
-    for (var i = number; i <= limitSize; i = i + count) {
-        arrNumber.push(i);
-    }
+    const [arrNumber, setArrNumber] = useState([]);
+    const [selectNumber, setNumberLanguage] = useState(0);
+
+    // let tempArr = []
+    //     for (var i = number; i <= limitSize; i = i + count) {
+    //         tempArr.push(i);
+    //     }
+        // setArrNumber(tempArr);
+
+
+    useEffect(()=>{
+        let tempArr = []
+        for (var i = number; i <= limitSize; i = i + count) {
+            tempArr.push(i);
+        }
+        setArrNumber(tempArr);        
+    },[]);
+
+    
     return (
         <View
             style={{
@@ -39,10 +59,10 @@ export default PickerNumber = ({
             <Picker
                 itemStyle={{ width: "50%", height: 100, fontSize: 15 }}
                 style={{ width: "100%", height: 100, marginTop: 10 }}
-                selectedValue={selectNumber}
+                selectedValue={value[field] ? value[field] : selectNumber}
                 onValueChange={(itemValue, itemIndex) => {
                     let valueTemp = { ...value };
-                    valueTemp[field] = parseInt(itemValue);
+                    valueTemp[field] = itemValue;
                     setData(valueTemp);
                     setNumberLanguage(itemValue);
                 }}

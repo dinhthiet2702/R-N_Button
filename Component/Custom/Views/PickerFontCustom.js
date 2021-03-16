@@ -5,6 +5,8 @@ import {
     Text
 } from "react-native";
 
+import PickerNumber from './PickerNumber';
+
 
 
 export default PickerFontCustom = ({title, setValueText, valueText}) => {
@@ -30,6 +32,7 @@ export default PickerFontCustom = ({title, setValueText, valueText}) => {
                     limitSize={25}
                     number={10}
                     count={1}
+                    
                 />
                 <PickerNumber
                     value={valueText}

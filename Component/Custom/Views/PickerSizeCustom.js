@@ -1,10 +1,12 @@
 import React from "react";
-import { View, Dimensions, Text } from "react-native"
+import { View, Dimensions, Text } from "react-native";
+import InputText from "./InputText";
+
 
 const widthLimit = Dimensions.get("window").width - 150;
 const heightLimit = 50;
 
-export default PickerSizeCustom = ({ title, valueText, setValueText }) => {
+export default PickerSizeCustom = ({ title, valueText, setValueText , objBtn}) => {
     return (
         <View style={{ width: "100%", alignItems: 'center' }}>
             <View
@@ -20,35 +22,18 @@ export default PickerSizeCustom = ({ title, valueText, setValueText }) => {
                 <Text>{title}</Text>
             </View>
             <View style={{ flexDirection: "row" }}>
-                <PickerNumber
-                    value={valueText}
-                    setData={setValueText}
-                    title="Width:"
-                    field="width"
-                    limitSize={widthLimit}
-                    number={30}
-                    count={10}
-                />
-                <PickerNumber
-                    value={valueText}
-                    setData={setValueText}
-                    title="Height:"
-                    field="height"
-                    limitSize={heightLimit}
-                    number={20}
-                    count={10}
-                />
+                <View style={{width: "50%"}}>
+                    <InputText objBtn={objBtn} valueText={valueText} setData={setValueText} title="Width" field="width" />
+                </View>
+
+                <View style={{width: "50%"}}>
+                    <InputText objBtn={objBtn} valueText={valueText} setData={setValueText} title="Height" field="height" />
+                </View>
             </View>
 
-            <PickerNumber
-                value={valueText}
-                setData={setValueText}
-                title="Radius:"
-                field="radius"
-                limitSize={25}
-                number={5}
-                count={2}
-            />
+            <View style={{width: "50%"}}>
+                    <InputText objBtn={objBtn} valueText={valueText} setData={setValueText} title="Radius" field="radius" />
+            </View>
         </View>
     )
 }

@@ -44,6 +44,14 @@ export const styleImageList = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         marginTop: 10,
+    },
+    viewTitle: {
+        width: "100%",
+        height: 20,
+        backgroundColor: "gray",
+        opacity: 20,
+        marginTop: 20,
+        alignItems: "center",
     }
 
 });

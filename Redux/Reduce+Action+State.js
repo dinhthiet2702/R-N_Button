@@ -11,7 +11,10 @@ let appState = {
             height: 50,
             color: "white",
             fontSize: 18,
+            borderWidth: 0,
+            borderColor: 'white',
             fontWeight: 800,
+            positionIcon: [],
             imageSource: null,
         },
     ],
@@ -28,6 +31,13 @@ export const AppendButton = (obj) => {
 export const DeleteButton = (obj) => {
     return {
         type: "Delete",
+        value: obj,
+    };
+};
+
+export const UpdateButton = (obj) => {
+    return {
+        type: "Update",
         value: obj,
     };
 };

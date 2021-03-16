@@ -8,10 +8,12 @@ import {
 import { Picker } from "@react-native-picker/picker";
 
 import { arrColor } from '../../../Const/const';
+import { useEffect } from "react";
 
-export default PickerColor = ({ value, setData, title, field }) => {
+export default PickerColor = ({ value, setData, title, field}) => {
 
-    const [selectedColor, setSelectedColor] = useState();
+    const [selectedColor, setSelectedColor] = useState("red");
+
     return (
         <View
             style={{
@@ -28,12 +30,14 @@ export default PickerColor = ({ value, setData, title, field }) => {
             <Picker
                 itemStyle={{ width: "50%", height: 100, fontSize: 15 }}
                 style={{ width: "100%", height: 100, marginTop: 10 }}
-                selectedValue={selectedColor}
+                selectedValue={value[field] ? value[field] : selectedColor}
                 onValueChange={(itemValue, itemIndex) => {
-                    let valueTemp = { ...value };
-                    valueTemp[field] = itemValue;
-                    setData(valueTemp);
-                    setSelectedColor(itemValue);
+
+                        let valueTemp = { ...value };
+                        valueTemp[field] = itemValue;
+                        setData(valueTemp);
+                        setSelectedColor(itemValue);
+
                 }}
             >
                 {arrColor.map((e) => {

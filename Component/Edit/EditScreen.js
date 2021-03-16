@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   Button,
   Touchable,
+  Image,
 } from 'react-native';
 
 
@@ -40,15 +41,31 @@ const EditScreen = ({ navigation, ...value }) => {
                   <View
                     key={e.id.toString()}
                     style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }} >
-                    <TouchableOpacity onPress={() => goToEdit(e)}
-                      style={{ width: "35%" }} style={{ alignItems: 'center', margin: 10 }}>
-                      <View style={{ width: e.width, height: e.height, borderRadius: e.radius, backgroundColor: e.backgroundColor, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ color: e.color.toString(), fontSize: e.fontSize, fontWeight: e.fontWeight.toString() }}>{e.name}</Text>
-                      </View>
-                    </TouchableOpacity>
+                    {
+                      (e.positionIcon.length > 0) ?
+                      <View style={{ width: "35%" }} style={{ alignItems: 'center', margin: 10 }}>
+                          <View style={{ width: e.width, height: e.height, borderRadius: e.radius, backgroundColor: e.backgroundColor, borderColor: e.borderColor, borderWidth: e.borderWidth , justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
+                            {
+                              
+                              (e.positionIcon.findIndex(item=>item === "Left") !== -1) ? <Image style={{width: 30, height: 30}} source={e.imageSource}></Image> : <Image></Image>
+                            }
+                            <Text style={{ color: e.color.toString(), fontSize: e.fontSize, fontWeight: e.fontWeight.toString() }}>{e.name}</Text>
+
+                            {
+                              (e.positionIcon.findIndex(item=>item === "Right") !== -1) ? <Image style={{width: 30, height: 30}} source={e.imageSource}></Image> : <Image></Image>
+                            }
+
+                          </View>
+                        </View>
+                       : <View style={{ width: "35%" }} style={{ alignItems: 'center', margin: 10 }}>
+                          <View style={{ width: e.width, height: e.height, borderRadius: e.radius, backgroundColor: e.backgroundColor, borderColor: e.borderColor, borderWidth: e.borderWidth , justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ color: e.color.toString(), fontSize: e.fontSize, fontWeight: e.fontWeight.toString() }}>{e.name}</Text>
+                          </View>
+                        </View>
+                    }
                     <View><Text>|</Text></View>
                     <View style={{ flexDirection: 'row' }}>
-                      <TouchableOpacity style={{ borderRadius: 10, width: 50, height: 40, alignItems: 'center', backgroundColor: 'green', justifyContent: 'center', marginRight: 10 }}><Text>Edit</Text></TouchableOpacity>
+                      <TouchableOpacity onPress={() => goToEdit(e)} style={{ borderRadius: 10, width: 50, height: 40, alignItems: 'center', backgroundColor: 'green', justifyContent: 'center', marginRight: 10 }}><Text>Edit</Text></TouchableOpacity>
                       <TouchableOpacity onPress={() => deleteBtn(e)} style={{ borderRadius: 10, width: 50, height: 40, alignItems: 'center', backgroundColor: 'red', justifyContent: 'center', marginRight: 10 }}><Text>Delete</Text></TouchableOpacity>
                     </View>
                   </View>
