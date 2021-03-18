@@ -11,6 +11,8 @@ import {
     Image,
 } from "react-native";
 
+import Logo from '../../assets/abc.svg';
+
 import { connect } from "react-redux";
 import Header from "../../BaseComponent/Header";
 
@@ -26,6 +28,7 @@ const ARRBTN = [
         fontSize: 17,
         fontWeight: 800,
         imageSource: null,
+        template: null
     },
     {
         id: 1,
@@ -38,6 +41,7 @@ const ARRBTN = [
         fontSize: 17,
         fontWeight: 800,
         imageSource: null,
+        template: null,
     },
     {
         id: 2,
@@ -50,6 +54,7 @@ const ARRBTN = [
         fontSize: 17,
         fontWeight: 800,
         imageSource: null,
+        template: null,
     },
     {
         id: 3,
@@ -62,6 +67,7 @@ const ARRBTN = [
         fontSize: 17,
         fontWeight: 800,
         imageSource: null,
+        template: null,
     },
     {
         id: 4,
@@ -74,6 +80,7 @@ const ARRBTN = [
         fontSize: 17,
         fontWeight: 800,
         imageSource: null,
+        template: null,
     },
     {
         id: 5,
@@ -86,6 +93,7 @@ const ARRBTN = [
         fontSize: 17,
         fontWeight: 800,
         imageSource: null,
+        template: null,
     },
     {
         id: 6,
@@ -98,6 +106,7 @@ const ARRBTN = [
         fontSize: 17,
         fontWeight: 800,
         imageSource: null,
+        template: null,
     },
     {
         id: 7,
@@ -110,11 +119,25 @@ const ARRBTN = [
         fontSize: 17,
         fontWeight: 800,
         imageSource: require("../../assets/iconDrop/check.png"),
+        template: null,
     },
+    {
+        id: 8,
+        name: "BUTTON",
+        backgroundColor: "gray",
+        radius: 5,
+        width: 100,
+        height: 50,
+        color: "white",
+        fontSize: 17,
+        fontWeight: 800,
+        imageSource: null,
+        template: Logo,
+    }
 ];
 
 const HomeScreen = ({ route, navigation, ...args }) => {
-    console.log("statesssss", args.listBtn);
+   
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -129,12 +152,9 @@ const HomeScreen = ({ route, navigation, ...args }) => {
                         }}
                     >
                         {ARRBTN.map((e, index) => {
-                            return e.imageSource === null ? (
-                                <View
-                                    key={e.id.toString()}
-                                    style={{ width: "35%" }}
-                                    style={{ alignItems: "center", margin: 10 }}
-                                >
+                            return (
+                                e.imageSource === null && e.template === null ? (
+                                <View key={e.id.toString()} style={{ width: "35%" }} style={{ alignItems: "center", margin: 10 }}>
                                     <View
                                         style={{
                                             width: e.width,
@@ -150,21 +170,16 @@ const HomeScreen = ({ route, navigation, ...args }) => {
                                         </Text>
                                     </View>
                                 </View>
-                            ) : (
-                                <View
-                                    style={{
-                                        width: 25,
-                                        height: 25,
-                                        borderWidth: 1,
-                                        alignItems: "center",
-                                    }}
-                                >
-                                    <Image
-                                        source={e.imageSource}
-                                        style={{ width: 20, height: 20 }}
-                                    ></Image>
-                                </View>
-                            );
+                                ) : e.template !== null ? <e.template key={e.id.toString()}  width={50} height={30}/> 
+                                : (
+                                    <View key={e.id.toString()} style={{width: 25,height: 25,borderWidth: 1,alignItems: "center",}}>
+                                        <Image
+                                            source={e.imageSource}
+                                            style={{ width: 20, height: 20 }}
+                                        ></Image>
+                                    </View>
+                                ) 
+                            )
                         })}
                     </View>
                 </ScrollView>

@@ -14,6 +14,13 @@ let appState = {
             borderWidth: 0,
             borderColor: 'white',
             fontWeight: 800,
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 0,
+            },
+            shadowOpacity: 0,
+            shadowRadius: 0,
             positionIcon: [],
             imageSource: null,
         },

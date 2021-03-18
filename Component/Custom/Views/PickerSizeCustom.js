@@ -6,7 +6,7 @@ import InputText from "./InputText";
 const widthLimit = Dimensions.get("window").width - 150;
 const heightLimit = 50;
 
-export default PickerSizeCustom = ({ title, valueText, setValueText , objBtn}) => {
+export default PickerSizeCustom = ({ title, valueText, setValueText }) => {
     return (
         <View style={{ width: "100%", alignItems: 'center' }}>
             <View
@@ -23,16 +23,16 @@ export default PickerSizeCustom = ({ title, valueText, setValueText , objBtn}) =
             </View>
             <View style={{ flexDirection: "row" }}>
                 <View style={{width: "50%"}}>
-                    <InputText objBtn={objBtn} valueText={valueText} setData={setValueText} title="Width" field="width" />
+                    <InputText valueText={valueText} setData={setValueText} title="Width" field="width" />
                 </View>
 
                 <View style={{width: "50%"}}>
-                    <InputText objBtn={objBtn} valueText={valueText} setData={setValueText} title="Height" field="height" />
+                    <InputText  valueText={valueText} setData={setValueText} title="Height" field="height" />
                 </View>
             </View>
 
             <View style={{width: "50%"}}>
-                    <InputText objBtn={objBtn} valueText={valueText} setData={setValueText} title="Radius" field="radius" />
+                    <InputText valueText={valueText} setData={setValueText} title="Radius" field="radius" />
             </View>
         </View>
     )

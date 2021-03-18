@@ -18,7 +18,7 @@ export const ItemScrollView = ({setSelectedImage, setCount, setData, value, e}) 
         let valueTemp = { ...value };
         valueTemp.imageSource = e.source;
         setData(valueTemp);
-        console.log('sfsdfsdf', valueTemp);
+        
       }}
       key={e.name}
       style={styleImageList.scrollViewItemTouchable}

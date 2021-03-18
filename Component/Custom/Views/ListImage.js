@@ -64,7 +64,7 @@ export const ListImage = ({ setData, value }) => {
                 <ScrollView style={styleImageList.scrollViewStyle}>
                     {arrImage.map((e, index) => {
                         return (
-                            <ItemScrollView setData={setData} setSelectedImage={setSelectedImage} setCount={setCount} value={value} e={e} />
+                            <ItemScrollView key={e.source.toString()} setData={setData} setSelectedImage={setSelectedImage} setCount={setCount} value={value} e={e} />
                         );
                     })}
                 </ScrollView>

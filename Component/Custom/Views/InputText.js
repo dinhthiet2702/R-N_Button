@@ -8,7 +8,7 @@ import {
     
 } from "react-native";
 
-export default InputText = ({ title, field, setData, objBtn, valueText }) => {
+export default InputText = ({ title, field, setData, valueText }) => {
     return (
         <View
             style={{

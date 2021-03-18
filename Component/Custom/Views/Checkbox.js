@@ -14,9 +14,13 @@ import {
 
 export const CheckBoxView = ({ title, state, setState, value={}, setValue}) => {
 
+    
+
     useEffect(() => {
 
         if (Object.keys(value).length === 0){
+
+            console.log('asdasdasd', state)
 
         }
         else{
@@ -43,6 +47,7 @@ export const CheckBoxView = ({ title, state, setState, value={}, setValue}) => {
         
 
     }, [state]);
+    
     return (
         <View style={{ flexDirection: "column", alignItems: "center", marginTop: 10 }}>
             <Text>{title}</Text>
@@ -59,8 +64,8 @@ export const CheckBoxView = ({ title, state, setState, value={}, setValue}) => {
                     alignItems: "center",
                 }}
             >
-                {state % 2 === 0 || value.positionIcon.findIndex(item => item !== title) !== -1 ? (
-                    <Image />
+                {state % 2 === 0  ? (
+                   null
                 ) : (
                     <Image
                         source={require('../../../assets/iconDrop/check.png')}

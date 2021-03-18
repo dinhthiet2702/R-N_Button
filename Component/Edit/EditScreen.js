@@ -36,32 +36,69 @@ const EditScreen = ({ navigation, ...value }) => {
           <View style={{ flexDirection: 'column', justifyContent: 'center' }}>
             {
               (listBtn && Object.keys(listBtn).length > 0) ? listBtn.map((e, index) => {
-                console.log("listBtn", listBtn);
+                
                 return (
                   <View
                     key={e.id.toString()}
                     style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }} >
                     {
                       (e.positionIcon.length > 0) ?
-                      <View style={{ width: "35%" }} style={{ alignItems: 'center', margin: 10 }}>
-                          <View style={{ width: e.width, height: e.height, borderRadius: e.radius, backgroundColor: e.backgroundColor, borderColor: e.borderColor, borderWidth: e.borderWidth , justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
+                        <View style={{ width: "35%" }} style={{ alignItems: 'center', margin: 10 }}>
+                          <TouchableOpacity onPress={() => alert('This is Button Custom')}
+                            style={{
+                              width: e.width,
+                              height: e.height,
+                              borderRadius: e.radius,
+                              backgroundColor: e.backgroundColor,
+                              borderColor: e.borderColor, borderWidth: e.borderWidth,
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              flexDirection: 'row',
+                              shadowColor: e.shadowColor,
+                              shadowOffset: e.shadowOffset,
+                              shadowOpacity: e.shadowOpacity,
+                              shadowRadius: e.shadowRadius,
+
+                              elevation: 5,
+                            }}>
                             {
-                              
-                              (e.positionIcon.findIndex(item=>item === "Left") !== -1) ? <Image style={{width: 30, height: 30}} source={e.imageSource}></Image> : <Image></Image>
+
+                              (e.positionIcon.findIndex(item => item === "Left") !== -1) ? <Image style={{ marginLeft: 5, width: 20, height: 20 }} source={e.imageSource}></Image> : <Image></Image>
                             }
                             <Text style={{ color: e.color.toString(), fontSize: e.fontSize, fontWeight: e.fontWeight.toString() }}>{e.name}</Text>
 
                             {
-                              (e.positionIcon.findIndex(item=>item === "Right") !== -1) ? <Image style={{width: 30, height: 30}} source={e.imageSource}></Image> : <Image></Image>
+                              (e.positionIcon.findIndex(item => item === "Right") !== -1) ? <Image style={{ marginRight: 5, width: 20, height: 20 }} source={e.imageSource}></Image> : <Image></Image>
                             }
 
-                          </View>
+                          </TouchableOpacity>
                         </View>
-                       : <View style={{ width: "35%" }} style={{ alignItems: 'center', margin: 10 }}>
-                          <View style={{ width: e.width, height: e.height, borderRadius: e.radius, backgroundColor: e.backgroundColor, borderColor: e.borderColor, borderWidth: e.borderWidth , justifyContent: 'center', alignItems: 'center' }}>
+                        : <TouchableOpacity
+                          onPress={() => alert('This is Button Custom')}
+                          style={{
+                            width: "35%",
+                            alignItems: 'center',
+                            margin: 10,
+                            shadowColor: e.shadowColor,
+                            shadowOffset: e.shadowOffset,
+                            shadowOpacity: e.shadowOpacity,
+                            shadowRadius: e.shadowRadius,
+
+                            elevation: 5,
+                          }}>
+                          <View style={{
+                            width: e.width,
+                            height: e.height,
+                            borderRadius: e.radius,
+                            backgroundColor: e.backgroundColor,
+                            borderColor: e.borderColor,
+                            borderWidth: e.borderWidth,
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                          }}>
                             <Text style={{ color: e.color.toString(), fontSize: e.fontSize, fontWeight: e.fontWeight.toString() }}>{e.name}</Text>
                           </View>
-                        </View>
+                        </TouchableOpacity>
                     }
                     <View><Text>|</Text></View>
                     <View style={{ flexDirection: 'row' }}>

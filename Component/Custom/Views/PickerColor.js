@@ -41,7 +41,7 @@ export default PickerColor = ({ value, setData, title, field}) => {
                 }}
             >
                 {arrColor.map((e) => {
-                    return <Picker.Item label={e} value={e} />;
+                    return <Picker.Item key = {e} label={e} value={e} />;
                 })}
             </Picker>
         </View>
