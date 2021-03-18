@@ -11,7 +11,7 @@ import {
     Image,
 } from "react-native";
 
-import { AppendButton, btnListReduce, UpdateButton } from "../../Redux/Reduce+Action+State";
+import { AppendButton, UpdateButton } from "../../Redux/Reduce+Action+State";
 
 import { connect } from "react-redux";
 
@@ -34,7 +34,7 @@ import { styleImageList } from "./Styles/style";
 
 import BorderView from "./Views/BorderView";
 
-import ViewShadow from './Views/ViewShadow';
+import ViewShadow from './Views/ShadowView';
 
 
 
@@ -84,7 +84,7 @@ const CustomButtonScreen = ({ route, navigation, ...agrs }) => {
             const indexEnd = agrs.listBtn.length;
             let valueTemp = { ...valueText };
             valueTemp.id = indexEnd;
-            valueTemp.fontWeight = valueText.fontWeight.toString();
+            valueTemp.fontWeight = valueText.fontWeight?.toString();
             addButton(valueTemp);
             navigation.navigate("Edit");
             

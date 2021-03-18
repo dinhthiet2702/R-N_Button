@@ -36,20 +36,20 @@ const EditScreen = ({ navigation, ...value }) => {
           <View style={{ flexDirection: 'column', justifyContent: 'center' }}>
             {
               (listBtn && Object.keys(listBtn).length > 0) ? listBtn.map((e, index) => {
-                
+
                 return (
                   <View
                     key={e.id.toString()}
                     style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }} >
                     {
-                      (e.positionIcon.length > 0) ?
+                      (e.positionIcon?.length > 0) ?
                         <View style={{ width: "35%" }} style={{ alignItems: 'center', margin: 10 }}>
                           <TouchableOpacity onPress={() => alert('This is Button Custom')}
                             style={{
-                              width: e.width,
-                              height: e.height,
+                              width: e.width ? e.width : 100,
+                              height: e.height ? e.height : 50,
                               borderRadius: e.radius,
-                              backgroundColor: e.backgroundColor,
+                              backgroundColor: e.backgroundColor ? e.backgroundColor : 'red',
                               borderColor: e.borderColor, borderWidth: e.borderWidth,
                               justifyContent: 'center',
                               alignItems: 'center',
@@ -65,7 +65,7 @@ const EditScreen = ({ navigation, ...value }) => {
 
                               (e.positionIcon.findIndex(item => item === "Left") !== -1) ? <Image style={{ marginLeft: 5, width: 20, height: 20 }} source={e.imageSource}></Image> : <Image></Image>
                             }
-                            <Text style={{ color: e.color.toString(), fontSize: e.fontSize, fontWeight: e.fontWeight.toString() }}>{e.name}</Text>
+                            <Text style={{ color: e.color, fontSize: e.fontSize, fontWeight: e.fontWeight?.toString() }}>{e.name}</Text>
 
                             {
                               (e.positionIcon.findIndex(item => item === "Right") !== -1) ? <Image style={{ marginRight: 5, width: 20, height: 20 }} source={e.imageSource}></Image> : <Image></Image>
@@ -87,16 +87,16 @@ const EditScreen = ({ navigation, ...value }) => {
                             elevation: 5,
                           }}>
                           <View style={{
-                            width: e.width,
-                            height: e.height,
+                            width: e.width ? e.width : 100,
+                            height: e.height ? e.height : 50,
                             borderRadius: e.radius,
-                            backgroundColor: e.backgroundColor,
+                            backgroundColor: e.backgroundColor ? e.backgroundColor : 'red',
                             borderColor: e.borderColor,
                             borderWidth: e.borderWidth,
                             justifyContent: 'center',
                             alignItems: 'center'
                           }}>
-                            <Text style={{ color: e.color.toString(), fontSize: e.fontSize, fontWeight: e.fontWeight.toString() }}>{e.name}</Text>
+                            <Text style={{ color: e.color, fontSize: e.fontSize, fontWeight: e.fontWeight?.toString() }}>{e.name}</Text>
                           </View>
                         </TouchableOpacity>
                     }

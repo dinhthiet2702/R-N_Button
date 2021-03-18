@@ -19,6 +19,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* TabbarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TabbarTests.m */; };
+		312801D0361F0F29DF4647A3 /* libPods-Tabbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEEDE86E4800DEBC3DAC1B /* libPods-Tabbar.a */; };
 		33965A31DDD9484EA64D0088 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989D250E1BD14580A0D67224 /* Feather.ttf */; };
 		378E4A04A58E42D4AA36EB9C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2935F0948F734EA6B810D141 /* FontAwesome5_Brands.ttf */; };
 		4DF2B82755F1420EA009BC79 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD83518A9A694E7C87152329 /* SimpleLineIcons.ttf */; };
@@ -115,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				312801D0361F0F29DF4647A3 /* libPods-Tabbar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +450,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		023BD51D81ADBF8C08D9EA63 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
